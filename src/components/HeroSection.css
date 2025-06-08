@@ -1,0 +1,144 @@
+/* Hero section layout */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left side content */
+.hero-content {
+    flex: 1;
+    padding-right: 40px;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #333 0%, #666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Right side mockup */
+.mockup-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* iPhone Mockup Styles - OVERLAY APPROACH */
+.iphone-mockup {
+    position: relative;
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+    transform: perspective(1000px) rotateY(-10deg);
+    transition: transform 0.5s ease;
+    animation: float 6s infinite ease-in-out;
+}
+
+.iphone-mockup:hover {
+    transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+}
+
+.iphone-frame {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+}
+
+.screen-overlay {
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    width: 88%;
+    height: 88%;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.screen-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: subtle-zoom 10s infinite ease-in-out;
+}
+
+/* Subtle zoom animation for the video */
+@keyframes subtle-zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Floating animation for the phone */
+@keyframes float {
+    0% { transform: translateY(0px) perspective(1000px) rotateY(-10deg); }
+    50% { transform: translateY(-10px) perspective(1000px) rotateY(-10deg); }
+    100% { transform: translateY(0px) perspective(1000px) rotateY(-10deg); }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+        max-width: 100%;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .mockup-container {
+        width: 100%;
+    }
+    
+    .iphone-mockup {
+        width: 250px;
+    }
+} 

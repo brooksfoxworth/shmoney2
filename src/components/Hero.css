@@ -1,0 +1,105 @@
+/* Hero Mockup Container Styles */
+.mockups-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.laptop-mockup-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.phone-mockup-wrapper {
+  position: absolute;
+  z-index: 2;
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+  .mockups-container {
+    min-height: 500px;
+  }
+
+  .laptop-mockup-wrapper {
+    transform: translateX(-10%);
+  }
+
+  .phone-mockup-wrapper {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* Tablet Layout */
+@media (max-width: 1023px) {
+  .mockups-container {
+    min-height: 450px;
+  }
+
+  .laptop-mockup-wrapper {
+    transform: translateX(-5%);
+  }
+
+  .phone-mockup-wrapper {
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+  .hero-mockup-column {
+    width: 100%;
+  }
+
+  .mockups-container {
+    min-height: 600px;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .laptop-mockup-wrapper {
+    transform: none;
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone-mockup-wrapper {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Small Mobile Layout */
+@media (max-width: 480px) {
+  .mockups-container {
+    min-height: 550px;
+  }
+
+  .laptop-mockup-wrapper {
+    transform: none;
+  }
+
+  .phone-mockup-wrapper {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+  }
+} 
