@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
               loop 
               playsInline
             >
-              <source src="/public/assets/videos/reel.mp4" type="video/mp4" />
+              <source src="/assets/videos/mockup reel 2 (1).mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -45,4 +45,4 @@ const HeroSection: React.FC = () => {
   );
 };
 
-export default HeroSection; 
+export default HeroSection;
