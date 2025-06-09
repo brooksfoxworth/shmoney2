@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,17 +14,6 @@ const Footer = () => {
               Leading digital marketing agency specializing in growth strategies, 
               social media marketing, and brand development that drives real results.
             </p>
-            <div className="flex space-x-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary transition-colors duration-300"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Services */}
@@ -54,15 +43,11 @@ const Footer = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5" />
-                <span>+1 (555) 123-4567</span>
+                <span>(843) 455-2821</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5" />
-                <span>hello@group3.com</span>
-              </div>
-              <div className="text-sm">
-                <p>123 Business Ave, Suite 100</p>
-                <p>New York, NY 10001</p>
+                <span>brooks@group3collective.com</span>
               </div>
             </div>
           </div>

@@ -13,6 +13,20 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Effect to lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -40,7 +54,7 @@ const Navigation = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="flex justify-between items-center h-48">
+        <div className="flex justify-between items-center h-24 md:h-48">
           {/* Logo */}
           <div className="logo-section flex items-center">
             <a href="#home" className="relative group">
@@ -48,13 +62,13 @@ const Navigation = () => {
               <img 
                 src="/assets/images/group3 logo.PNG" 
                 alt="GROUP3 Digital Marketing" 
-                className="h-40 md:h-48 w-auto logo-base transition-all duration-300"
+                className="h-20 md:h-48 w-auto logo-base transition-all duration-300"
               />
               {/* Hover effect with orange accent */}
               <img 
                 src="/assets/images/group3 logo.PNG" 
                 alt="GROUP3 Digital Marketing" 
-                className="h-40 md:h-48 w-auto absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-300 logo-hover"
+                className="h-20 md:h-48 w-auto absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-300 logo-hover"
               />
             </a>
           </div>
@@ -95,7 +109,7 @@ const Navigation = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-white border-t absolute w-full left-0">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {['Home', 'Services', 'Portfolio', 'Contact'].map((item) => (
               <button

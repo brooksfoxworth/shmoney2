@@ -1,48 +1,42 @@
-import React, { useEffect, useRef } from 'react';
-import './IPhoneMockup.css';
+import React, { useState, useEffect, useRef } from 'react';
+import './IPhoneMockup.css'; 
 
 const IPhoneMockup: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  const mockupStyle = isMobile 
+    ? { transform: 'rotate(5deg)', left: '-50px', position: 'relative' } 
+    : {};
 
   useEffect(() => {
     const video = videoRef.current;
     
     if (video) {
-      // Set all video properties explicitly
       video.muted = true;
       video.loop = true;
       video.autoplay = true;
       video.playsInline = true;
       
-      // Force play function
       const forcePlay = () => {
         video.play().catch(error => {
           console.error("Video playback failed:", error);
-          // Retry after a short delay
-          setTimeout(() => {
-            video.play().catch(e => console.error("Retry failed:", e));
-          }, 100);
         });
       };
       
-      // Try to play on various events
       forcePlay();
-      video.addEventListener('loadedmetadata', forcePlay);
       video.addEventListener('loadeddata', forcePlay);
-      video.addEventListener('canplay', forcePlay);
       
-      // Force restart if video pauses
-      video.addEventListener('pause', () => {
-        video.play();
-      });
-      
-      // Backup loop
-      video.addEventListener('ended', () => {
-        video.currentTime = 0;
-        video.play();
-      });
-      
-      // Intersection Observer to play when visible
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -53,7 +47,6 @@ const IPhoneMockup: React.FC = () => {
       
       observer.observe(video);
       
-      // Cleanup
       return () => {
         observer.disconnect();
       };
@@ -61,7 +54,7 @@ const IPhoneMockup: React.FC = () => {
   }, []);
 
   return (
-    <div className="iphone-mockup">
+    <div className="iphone-mockup" style={mockupStyle}>
       <img 
         src="/assets/images/mockup.png" 
         alt="iPhone displaying GROUP3 marketing reel" 
@@ -78,7 +71,7 @@ const IPhoneMockup: React.FC = () => {
           webkit-playsinline="true"
           aria-label="iPhone displaying GROUP3 marketing reel"
         >
-          <source src="/assets/videos/reel (2).mp4" type="video/mp4" />
+          <source src="/assets/videos/mockup reel 2 (1).mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -86,4 +79,4 @@ const IPhoneMockup: React.FC = () => {
   );
 };
 
-export default IPhoneMockup; 
+export default IPhoneMockup;

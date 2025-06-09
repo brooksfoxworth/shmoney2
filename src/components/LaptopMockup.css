@@ -2,18 +2,17 @@
 
 .laptop-mockup {
     position: relative;
-    width: 600px; /* Increased from 450px */
+    width: 600px;
     max-width: 100%;
     margin: 0 auto;
     transform-style: preserve-3d;
-    /* Enhanced 3D perspective for more dynamic look */
     transform: perspective(1400px) rotateX(-15deg) rotateY(8deg);
-    transform-origin: center bottom; /* Rotate from bottom for laptop effect */
+    transform-origin: center bottom;
     transition: transform 0.5s ease;
 }
 
 .laptop-frame {
-    width: 600px;
+    width: 100%;
     height: auto;
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -21,63 +20,14 @@
 }
 
 .laptop-frame:hover {
-    transform: scale(1.02) rotateY(-5deg);
+    transform: scale(1.02);
 }
 
-/* Hover effects with 3D */
+/* Remove the hover effect causing the highlight */
 .laptop-mockup:hover {
-    transform: perspective(1400px) rotateX(-13deg) rotateY(5deg) scale(1.03);
+    transform: perspective(1400px) rotateX(-15deg) rotateY(8deg) scale(1.03);
 }
 
-/* Subtle matching bubble behind laptop */
-.laptop-mockup::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle at center, 
-        rgba(59, 130, 246, 0.15) 0%,
-        rgba(59, 130, 246, 0.08) 40%,
-        transparent 70%);
-    border-radius: 50%;
-    z-index: -1;
-    animation: subtleGlow 4s infinite ease-in-out;
-}
-
-.laptop-mockup::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 140%;
-    height: 140%;
-    background: radial-gradient(circle at center, 
-        rgba(59, 130, 246, 0.1) 0%,
-        rgba(59, 130, 246, 0.05) 50%,
-        transparent 70%);
-    border-radius: 50%;
-    animation: subtleGlow 4s infinite ease-in-out;
-    animation-delay: 2s;
-    pointer-events: none;
-    z-index: -1;
-}
-
-@keyframes subtleGlow {
-    0%, 100% {
-        opacity: 0.6;
-        transform: translate(-50%, -50%) scale(0.95);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.05);
-    }
-}
-
-/* Responsive adjustments */
 @media (max-width: 1024px) {
     .laptop-frame {
         width: 500px;
@@ -98,6 +48,6 @@
 
 @media (max-width: 640px) {
     .laptop-mockup {
-        width: 360px; /* Increased from 300px */
+        width: 360px;
     }
-} 
+}
