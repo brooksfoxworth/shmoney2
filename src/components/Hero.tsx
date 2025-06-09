@@ -1,4 +1,4 @@
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import IPhoneMockup from '@/components/IPhoneMockup';
 import LaptopMockup from '@/components/LaptopMockup';
@@ -109,15 +109,6 @@ const Hero = () => {
               >
                 Start Your Journey
                 <ArrowRight className="ml-2 h-4 lg:h-5 w-4 lg:w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-primary text-primary hover:bg-primary hover:text-white px-8 lg:px-10 py-4 lg:py-5 text-base lg:text-lg group button-glow"
-              >
-                <Play className="mr-2 h-4 lg:h-5 w-4 lg:w-5 group-hover:scale-110 transition-transform" />
-                Watch Our Story
               </Button>
             </div>
           </div>

@@ -207,7 +207,7 @@
 /* Shift mockups right on desktop */
 @media (min-width: 1024px) {
   .mockups-container {
-    transform: translateX(80px); /* Move 80px to the right */
+    transform: translateX(0px); /* Move 80px to the right */
   }
 }
 
